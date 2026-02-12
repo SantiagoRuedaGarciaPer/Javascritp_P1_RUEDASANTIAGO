@@ -1,8 +1,4 @@
-// Escucha cuando se presiona cualquier tecla
-document.addEventListener('keydown', function keypressed() {
-    // Limpia la consola
-    console.clear();
-})
+trainers = [{'nombre':'pedro', 'ruta':'NodeJS'}, {'nombre':"jolver", 'ruta':'Java'}]
 
 //Camper
 let datos = 0;
@@ -59,7 +55,9 @@ function Coordinador(){
         console.log("1. Ver estudiante");
         console.log("2. Calificar estudiante");
         console.log("3. Asignar ruta a estudiante");
-        console.log("4. Salir");
+        console.log("4. crear nueva ruta");
+        console.log("5. Asignar ruta a profesor");
+        console.log("6. Salir");
         option = prompt("Ingrese su seleccion")
         if(option == "1"){
             verEstudiante(datos)
@@ -70,7 +68,17 @@ function Coordinador(){
         }else if(option =="3"){
             data = asignarRuta(datos)
         }else if(option == "4"){
-            break
+            rutas.push(prompt("ingrese el nombre de la nueva ruta"))
+        }else if(option == "5"){
+            for (let index = 0; index < trainers.length; index++) {
+                console.log(trainer[index]);
+            }
+            opcionTrainer = Number(prompt("A que trainer desea cambiar de ruta?"));
+            trainer[opcionTrainer]['ruta']=prompt("a que ruta lo desea cambiar?")
+            for (let index = 0; index < rutas.length; index++) {
+                console.log(rutas[index]);
+            }
+            
         }
     }
 }
@@ -107,7 +115,13 @@ function calificarEstudiante(datos, nota1, nota2){
     }
     
 }
- 
+
+//trainer
+for (let index = 0; index < trainers.length; index++) {
+    console.log(trainers[index])
+    
+}
+
 
 function inicioSecion(){
     while (true){
