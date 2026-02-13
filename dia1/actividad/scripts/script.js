@@ -48,7 +48,7 @@ function pedirDatos(datos){
 }
 
 //Coordinador
-rutas = ["Node JS", "Java", "NetCore"]
+let rutas = ["Node JS", "Java", "NetCore"]
 function Coordinador(){
     while (true){
         
@@ -69,16 +69,20 @@ function Coordinador(){
             data = asignarRuta(datos)
         }else if(option == "4"){
             rutas.push(prompt("ingrese el nombre de la nueva ruta"))
+            console.clear()
         }else if(option == "5"){
             for (let index = 0; index < trainers.length; index++) {
-                console.log(trainer[index]);
+                console.log(index +" " + trainers[index]);
+
             }
             opcionTrainer = Number(prompt("A que trainer desea cambiar de ruta?"));
-            trainer[opcionTrainer]['ruta']=prompt("a que ruta lo desea cambiar?")
+            trainers[opcionTrainer]['ruta']=prompt("a que ruta lo desea cambiar?")
             for (let index = 0; index < rutas.length; index++) {
                 console.log(rutas[index]);
-            }
+            }console.clear()
             
+        }else if(option == "6"){
+            break
         }
     }
 }
@@ -116,16 +120,13 @@ function calificarEstudiante(datos, nota1, nota2){
     
 }
 
-//trainer
-for (let index = 0; index < trainers.length; index++) {
-    console.log(trainers[index])
-    
-}
+
+
 
 
 function inicioSecion(){
     while (true){
-        console.clear()
+        
         console.log("Para ingresar seleccione su rol")
         console.log("1. Camper");
         console.log("2. Trainer");
@@ -139,7 +140,12 @@ function inicioSecion(){
         else if (option == "1") {
             camper()
         }else if (option == "2"){
-
+            //trainer
+            console.clear()
+            for (let index = 0; index < trainers.length; index++) {
+                console.log(trainers[index]['nombre'])
+                console.log(trainers[index]['ruta'])
+            }
         }else if(option == "3"){
             Coordinador()
         }
