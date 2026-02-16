@@ -1,10 +1,10 @@
 trainers = [{'nombre':'pedro', 'ruta':'NodeJS'}, {'nombre':"jolver", 'ruta':'Java'}]
 
 //Camper
-let datos = 0;
+let datos = [];
 function camper() {
     while (true) {
-        console.clear()
+        
         console.log("1. Registrarse");
         console.log("2. Ver Estado");
         console.log("3. Salir");
@@ -13,14 +13,17 @@ function camper() {
             break
         }
         else if (option == "1") {
-            if(datos == 0){
+            if(datos != []){
+                console.clear()
                 datos=pedirDatos(datos)
             }
             else{
+                console.clear()
                 console.log("Ya esta registrado");
             }
         } else if (option == "2"){
-            if(datos != 0){
+            if(datos != []){
+                console.clear()
                 console.log(datos[6]);
             }
             else{
@@ -62,11 +65,19 @@ function Coordinador(){
         if(option == "1"){
             verEstudiante(datos)
         }else if(option == "2"){
-            nota1 = Number(prompt("ingrese la primera nota"));
-            nota2 = Number(prompt("ingrese la segunda nota"));
-            data = calificarEstudiante(datos, nota1, nota2);
+            if(datos.length != 0){
+                nota1 = Number(prompt("ingrese la primera nota"));
+                nota2 = Number(prompt("ingrese la segunda nota"));
+                data = calificarEstudiante(datos, nota1, nota2);
+            }else{
+                console.log("Aun no hay estudiantes registrados")
+            }
         }else if(option =="3"){
-            data = asignarRuta(datos)
+            if (datos.length != 0){
+                data = asignarRuta(datos)
+            }else{
+                console.log("Aun no hay estudiantes registrados")
+            }
         }else if(option == "4"){
             rutas.push(prompt("ingrese el nombre de la nueva ruta"))
             console.clear()
@@ -87,17 +98,17 @@ function Coordinador(){
     }
 }
 function asignarRuta(datos){
-    for (let index = 0; index < rutas.length; index++) {
-        console.log(rutas[index]);
-    }
-    ruta = prompt("A que ruta desea agregar al camper?")
-
-    datos.push(ruta)
+    
+        for (let index = 0; index < rutas.length; index++) {
+            console.log(rutas[index]);
+        }
+        ruta = prompt("A que ruta desea agregar al camper?")
+        datos.push(ruta)
 }
 
 function verEstudiante(datos){
     console.clear()
-    if (datos != 0){
+    if (datos != []){
         for (let index = 0; index < datos.length; index++) {
             console.log(datos[index]);            
         }
@@ -138,6 +149,7 @@ function inicioSecion(){
             break;
         }
         else if (option == "1") {
+            console.clear()
             camper()
         }else if (option == "2"){
             //trainer
@@ -147,6 +159,7 @@ function inicioSecion(){
                 console.log(trainers[index]['ruta'])
             }
         }else if(option == "3"){
+            console.clear()
             Coordinador()
         }
     }
