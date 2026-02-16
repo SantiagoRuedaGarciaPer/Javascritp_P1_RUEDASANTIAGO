@@ -1,4 +1,4 @@
-trainers = [{'nombre':'pedro', 'ruta':'NodeJS'}, {'nombre':"jolver", 'ruta':'Java'}]
+let trainers = [{'nombre':'pedro', 'ruta':'NodeJS'}, {'nombre':"jolver", 'ruta':'Java'}]
 
 //Camper
 let datos = [];
@@ -83,8 +83,11 @@ function Coordinador(){
             console.clear()
         }else if(option == "5"){
             for (let index = 0; index < trainers.length; index++) {
-                console.log(index +" " + trainers[index]);
+                console.log(index +" " + trainers[index]['nombre'] + trainers[index]['ruta']);
 
+            }
+            for (let index = 0; index < rutas.length; index++){
+                console.log(rutas[index])
             }
             opcionTrainer = Number(prompt("A que trainer desea cambiar de ruta?"));
             trainers[opcionTrainer]['ruta']=prompt("a que ruta lo desea cambiar?")
