@@ -37,7 +37,22 @@ function runEjemplo1(){
         })
     }
 log("Iniciando...")
-messajeAsync("El cuerdas gratis llego vendiendo... hielo azul por dos esmeraldas. y adivina que, estamos en los glaciares. o sea, wow", 2000)
+messajeAsync("El cuerdas gratis llego vendiendo... hielo azul por dos esmeraldas. y adivina que, estamos en los glaciares. o sea, wow", 1000)
 .then((msg)=>log(msg))
 .catch((err)=>log("Error", err.message))
 .finally(()=>log("Proceso Finalizado"))
+
+function verificarNumeroAsync(numero){
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            if (numero % 2 === 0){
+                resolve("El numero es valido")
+            }else{
+                reject(new Error("El numero es invalido"))
+            }
+        }, 500)
+    })
+}
+verificarNumeroAsync(3).then((msg)=>log(msg))
+.catch((err)=>log(err.message))
+.finally(()=>log("El programa ha finalizado"))
