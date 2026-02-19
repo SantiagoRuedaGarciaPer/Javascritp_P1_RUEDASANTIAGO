@@ -36,7 +36,7 @@ function PrintSpell(data){
         }else if(datos['higher_level'] != [] && 'damage' in datos){
             return datos['higher_level']
         }else if(datos['higher_level'] !=[] && 'damage' in datos == false){
-            return `:D`
+            return ``
         }
     }
     function damage(datos){
@@ -56,7 +56,7 @@ function PrintSpell(data){
             }
             return listaHTML+=`</ul>`;
         }else{
-            return `Sin daño`
+            return `Doesn't make any damage`
         }
     }
 }
