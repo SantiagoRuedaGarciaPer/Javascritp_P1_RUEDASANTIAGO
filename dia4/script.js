@@ -26,18 +26,45 @@ function PrintSpell(data){
     spellResult.innerHTML=`
         <h2>${data['name']}</h2>
         <p>${data['desc']}</p>
-        <p>Damage:</p>
-        <p>${data['damage']['damage_type']}</p>
-        <li>
-            <ul>${data['damage_at_slot_level']}</ul>
-        </li>
+        <p>${higher_level(data)}</p>
+        ${damage(data)}
+        </ul>
     `;
+    function higher_level(datos){
+        if(datos['higher_level'] != [] && 'damage' in datos){
+            return `The damage does not increase by any superior level you have`
+        }else if(datos['higher_level'] != [] && 'damage' in datos){
+            return datos['higher_level']
+        }else if(datos['higher_level'] !=[] && 'damage' in datos == false){
+            return `:D`
+        }
+    }
+    function damage(datos){
+        
+        if('damage' in datos){
+            let listaHTML = `
+            <p>Damage:</p>
+            <p>Damage type: ${data['damage']['damage_type']['name']}</p>
+            <ul>
+            `
+            for (let index = 0; index < 11; index++) {
+                if (datos['damage']['damage_at_slot_level'][index] != undefined) {
+                    listaHTML += `<li><span>Level ${index}: </span>${datos['damage']['damage_at_slot_level'][index]}</li>`
+                }else{
+                    continue
+                }
+            }
+            return listaHTML+=`</ul>`;
+        }else{
+            return `Sin daño`
+        }
+    }
 }
 
 function getAllSpells(name){
     const url = LINK+Spell;
     fetch(url).then((response)=>response.json()).then((data)=>{
-        console.log(data) //Esta linea imprime toda la data, recomiendo usar solo si no sabes como se llama el hechizo
+        //console.log(data) //Esta linea imprime toda la data, recomiendo usar solo si no sabes como se llama el hechizo
         let spellsData = data.results;
         let machedSpell = spellsData.find((spell)=>spell.name.toLowerCase()===name.toLowerCase())
         if(machedSpell){
@@ -48,7 +75,7 @@ function getAllSpells(name){
         `
         const buttonMore = document.getElementById("MoreButton")
         buttonMore.addEventListener("click", ()=>{
-            getSpell(name)
+            getSpell(machedSpell.index)
         })
         }else{
             spellResult.innerHTML=`
