@@ -6,3 +6,68 @@
     box-sizing: border-box;
     font-family: 'Oxanium', cursive;
 }
+body{
+    margin: 0px;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.container{
+    display: flex;
+}
+
+.container-buttons{
+    width: 300px;
+    position: fixed;
+    height: min-content;
+    display: grid;
+    grid-template-rows:60px 150px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    right: 60%;
+    left: 40%;
+    top: 63%;
+    bottom: 48%;
+}
+.id_or_name{
+    justify-self: end;
+    grid-column: span 2;
+    width: 100%;
+    height: 80%;
+}
+
+button{
+    margin: 5px;
+}
+
+.pokemon-result{
+    height: 200px;
+    width: 250px;
+    display: flex;
+    position: fixed;
+    top: 26%;
+    left: 41.5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-result div{
+    position: fixed;
+    top: 56%;
+}
+
+.pokemon-result div span{
+    margin: 5px;
+}
+
+.pokedex{
+    width: 425px;
+    height: auto;
+    max-width: none;
+    object-fit: none;
+}
+
