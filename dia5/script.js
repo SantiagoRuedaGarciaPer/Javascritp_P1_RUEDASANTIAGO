@@ -40,7 +40,8 @@ function averiguar_siguiente(link){
         let id = data['id']
         if(id == 1023){
             alert("No hay mas pokemons despues de este :)")
-        }else{
+        }
+        else{
             newLink = LINK + (id+1)
             linksito = newLink
             siguiente(newLink)
