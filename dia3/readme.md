@@ -53,4 +53,4 @@ function runEjercicio1(){
 
 runEjercicio1()
 ```
-
+- [ejemplo trabajado en clase](./index.html)
