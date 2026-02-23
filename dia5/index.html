@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon-16x16.webp" type="image/x-icon">
     <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-16x16.webp">
     <title>Pokedex</title>
 </head>
 <body>
-    <div class="main">
-        <img class="pokemon__image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" alt="">
-        <h1 class="pokemon-data">
-            <span class="pokemon-number">1</span> -
-            <span class="pokemon-name">Bulbasaur</span>
+    <main>
+        <img  class="pokemon__image" src="" alt=""></img>
+        <h1 class="pokemon_data">
+            <span class="pokemon_number"></span>-
+            <span class="pokemon_name"></span>
         </h1>
-        <img class="pokedex" src="./assets/pokedex (1) (2).png" id="pokedex" alt="">
         <form class="form">
-            <input class="input-search" type="text" placeholder="Name or number">
+            <input type="search" class="input_search" placeholder="Name or Number" required>
         </form>
         <div class="buttons">
-            <button class="button btn-prev">Prev &lt</button>
-            <button class="button btn-next">Prev &gt</button>
+            <button class="button btn-prev">Prev &lt</button> <!-- Least than lt-->
+            <button class="button btn-next">Next &gt</button><!-- greater than gt-->
         </div>
-    </div>
+        <img class="pokedex" src="./assets/pokedex (1) (2).png" alt="">
+    </main>
+    <audio autoplay src="" class="gritos"></audio>
 </body>
 <script src="./script.js"></script>
 </html>

@@ -1,17 +1,16 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap&#39');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oxanium', cursive;
+    font-family: 'Oxanium',cursive;
 }
 body{
     text-align: center;
-    background: linear-gradient(to bottom, rgb(110, 186, 245), #fff);
+    background: linear-gradient(to bottom,rgb(110,186,245),#fff); 
     min-height: 100vh;
 }
-.main{
+main{
     display: inline-block;
     margin-top: 2%;
     padding: 15px;
@@ -21,7 +20,6 @@ body{
     width: 100%;
     max-width: 425px;
 }
-
 .pokemon__image{
     position: absolute;
     bottom: 55%;
@@ -29,31 +27,35 @@ body{
     height: 18%;
     transform: translate(-63%,20%);
 }
-.pokemon-data{
-    position:absolute;
+.pokemon_data{
+    position: absolute;
     font-weight: 600;
-    color: rgb(160, 160, 160);
+    color: rgb(160, 160,160);
     top: 54.5%;
     right: 27%;
-    font-size: clamp(8px, 5vw, 25px);
+    font-size: clamp(8px,5vw,25px);
+}
+.pokemon_name{
+    color: rgb(59,69,77);
 }
 .form{
     position: absolute;
     width: 65%;
     top: 65%;
-    left: 14.5;
+    left: 14.5%;
 }
-.input-search{
+.input_search{
     width: 100%;
     padding: 4%;
     outline: none;
-    border: 1px solid rgb(51, 51, 51);
+    border: 1px solid rgb(51,51,51);
     border-radius: 5px;
     font-weight: 600;
-    color: rgb(118, 118, 188);
-    font-size: clamp(8px, 5vw, 1rem);
-    box-shadow: -3px 4px rgb(135, 135, 135),-5px 7px rgb(51, 51, 51);
+    color: rgb(118,118,188);
+    font-size: clamp(8px,5vw,1rem);
+    box-shadow: -3px 4px rgb(135,135,135),-5px 7px rgb(51,51,51);
 }
+
 .buttons{
     position: absolute;
     bottom: 10%;
@@ -62,4 +64,19 @@ body{
     transform: translate(-57%,0);
     display: flex;
     gap: 20px;
+}
+.button{
+    width: 50%;
+    padding: 4%;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: clamp(8px, 5vw, 1rem);
+    font-weight: 600;
+    background-color: rgb(69, 69, 69);
+    color: white;
+    box-shadow: -2px 3px #222, -4px 6px black;
+}
+.button:active{
+    box-shadow: inset -4px 4px #222;
+    font-size: 0.9rem;
 }
