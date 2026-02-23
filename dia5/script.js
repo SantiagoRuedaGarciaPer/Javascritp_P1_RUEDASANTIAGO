@@ -1,6 +1,15 @@
 let nombre;
 const LINK = "https://pokeapi.co/api/v2/pokemon/"
-let linksito;
+let linksito = "https://pokeapi.co/api/v2/pokemon/1"
+
+function imprimirImagen(datos){
+    if(datos["sprites"]['versions']['generation-v']['black-white']['animated']['front_default'] == null){
+        return datos["sprites"]['versions']['generation-v']['black-white']['animated']['front_default']
+    }else{
+        return datos["sprites"]['other']['showdown']['front_default']
+    }
+};
+
 const buscador = document.getElementById("id_or_name").addEventListener("keydown",(e)=>{
     if(e.key === 'Enter'){
         nombre = document.getElementById("id_or_name").value;
@@ -17,7 +26,7 @@ const buscador = document.getElementById("id_or_name").addEventListener("keydown
                 contenedor.innerHTML+=`
                         <img src="${imprimirImagen(data)}" alt="">
                         <div>
-                            <span>${data['id']}</span><span>${data['forms']['0']['name']}</span>
+                            <span class="pokemon-id">${data['id']}-</span><span class="pokemon-name">${data['forms']['0']['name']}</span>
                         </div>
                 `;
                 id_or_name = document.getElementById('id_or_name').value = ""
@@ -61,7 +70,7 @@ function siguiente(link){
                 contenedor.innerHTML+=`
                         <img src="${imprimirImagen(data)}" alt="">
                         <div>
-                            <span>${data['id']}</span><span>${data['forms']['0']['name']}</span>
+                            <span class="pokemon-id">${data['id']}-</span><span class="pokemon-name">${data['forms']['0']['name']}</span>
                         </div>
                 `;
                 id_or_name = document.getElementById('id_or_name').value = ""
@@ -105,7 +114,7 @@ function anterior(link){
                     
                         <img src="${imprimirImagen(data)}" alt="">
                         <div>
-                            <span>${data['id']}</span><span>${data['forms']['0']['name']}</span>
+                            <span class="pokemon-id">${data['id']}-</span><span class="pokemon-name">${data['forms']['0']['name']}</span>
                         </div>
                 `;
                 id_or_name = document.getElementById('id_or_name').value = ""
@@ -116,10 +125,3 @@ function anterior(link){
     })
 }
 
-function imprimirImagen(datos){
-    if(datos["sprites"]['other']['showdown']['front_default'] == null){
-        return datos['sprites']['front_default']
-    }else{
-        return datos["sprites"]['other']['showdown']['front_default']
-    }
-};

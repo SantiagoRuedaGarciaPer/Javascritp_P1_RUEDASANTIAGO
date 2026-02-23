@@ -7,81 +7,59 @@
     font-family: 'Oxanium', cursive;
 }
 body{
-    margin: 0px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(110, 186, 245), #fff);
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
 }
-.container{
-    display: flex;
+.main{
+    display: inline-block;
+    margin-top: 2%;
+    padding: 15px;
+    position: relative;
 }
-
-.container-buttons{
-    width: 300px;
-    position: fixed;
-    height: min-content;
-    display: grid;
-    grid-template-rows:60px 150px;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    right: 60%;
-    left: 40%;
-    top: 63%;
-    bottom: 48%;
-}
-.id_or_name{
-    justify-self: end;
-    grid-column: span 2;
-    width: 100%;
-    height: 80%;
-    padding: 10px 14px;
-    font-size: 16px;
-    border: 2px solid #333;
-    outline: none;
-    background-color: #f8f8f8;
-}
-
-button{
-    margin: 5px;
-    background-color: black;
-    color: white;
-    border: 2px solid #333;
-    outline: none;
-    height: 35px;
-}
-button:active{
-    background-color: #333;
-    height: 30px;
-}
-
-.pokemon-result{
-    height: 200px;
-    width: 250px;
-    display: flex;
-    position: fixed;
-    top: 26%;
-    left: 41.5%;
-    align-items: center;
-    justify-content: center;
-}
-
-.pokemon-result div{
-    position: fixed;
-    top: 56%;
-}
-
-.pokemon-result div span{
-    margin: 5px;
-}
-
 .pokedex{
-    width: 425px;
-    height: auto;
-    max-width: none;
-    object-fit: none;
+    width: 100%;
+    max-width: 425px;
 }
 
+.pokemon__image{
+    position: absolute;
+    bottom: 55%;
+    left: 50%;
+    height: 18%;
+    transform: translate(-63%,20%);
+}
+.pokemon-data{
+    position:absolute;
+    font-weight: 600;
+    color: rgb(160, 160, 160);
+    top: 54.5%;
+    right: 27%;
+    font-size: clamp(8px, 5vw, 25px);
+}
+.form{
+    position: absolute;
+    width: 65%;
+    top: 65%;
+    left: 14.5;
+}
+.input-search{
+    width: 100%;
+    padding: 4%;
+    outline: none;
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 5px;
+    font-weight: 600;
+    color: rgb(118, 118, 188);
+    font-size: clamp(8px, 5vw, 1rem);
+    box-shadow: -3px 4px rgb(135, 135, 135),-5px 7px rgb(51, 51, 51);
+}
+.buttons{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 65%;
+    transform: translate(-57%,0);
+    display: flex;
+    gap: 20px;
+}
