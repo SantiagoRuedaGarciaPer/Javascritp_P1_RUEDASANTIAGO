@@ -88,7 +88,6 @@ pasar.addEventListener("click", ()=>{
             carta = cartasJugador[i].slice(0, 2)
         }
 
-        console.log(carta)
         if(carta == 'A'){
             countCardJug += 11 
         }else if(carta == 'J' || carta == 'Q' || carta == 'K'){
@@ -97,8 +96,8 @@ pasar.addEventListener("click", ()=>{
         else{
             countCardJug += Number(carta)
         }
+        console.log("se añadio " + carta)
     }
-    console.log(countCardJug);
     
     let countCardRep = 0
     for (let i = 0; i < cartasCasa.length; i++){
@@ -108,7 +107,6 @@ pasar.addEventListener("click", ()=>{
             carta = cartasCasa[i].slice(0, 2)
         }
 
-        console.log(carta)
         if(carta == 'A'){
             countCardRep += 11 
         }else if(carta == 'J' || carta == 'Q' || carta == 'K'){
@@ -117,23 +115,53 @@ pasar.addEventListener("click", ()=>{
         else{
             countCardRep += Number(carta)
         }
+        
     }
-    console.log(countCardRep);
 
+    console.log(countCardJug, countCardRep)
     if(countCardJug > 21){
         if (cartasJugador.some(elemento => elemento.includes('A'))) {
             countCardJug -= 10
             if(countCardJug > 21){
-                jugador.innerHTML+=`<h2>Perdiste!</h2>`
+                jugador.innerHTML+=`
+                <h2 style="color: white">Volaste!</h2>
+            <p style="color: white">Obtuviste ${countCardJug} puntos</p>
+            <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
+            `
+            }else if(countCardJug < countCardRep || countCardJug == countCardRep){
+                jugador.innerHTML+=`
+                <h2 style="color: white">Perdiste!</h2>
+            <p style="color: white">Obtuviste ${countCardJug} puntos</p>
+            <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
+            `
+            }
+            else if(countCardJug > countCardRep){
+                jugador.innerHTML+=`
+                <h2 style="color: white">Ganaste!</h2>
+            <p style="color: white">Obtuviste ${countCardJug} puntos</p>
+            <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
+            `
             }
         }else{
-            jugador.innerHTML+=`<h2>Perdiste!</h2>`
+            jugador.innerHTML+=`
+            <h2 style="color: white">Volaste!</h2>
+            <p style="color: white">Obtuviste ${countCardJug} puntos</p>
+            <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
+            `
         }
     }else if(countCardJug < countCardRep || countCardJug == countCardRep){
-        jugador.innerHTML+=`<h2>Perdiste!</h2>`
+        jugador.innerHTML+=`
+        <h2 style="color: white">Perdiste!</h2>
+        <p style="color: white">Obtuviste ${countCardJug} puntos</p>
+        <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
+        `
     }
-    else if(countCardJug > countCardRep){
-        jugador.innerHTML+=`<h2>Ganaste!</h2>`
+    else if(countCardJug > countCardRep && countCardJug <= 21){
+        jugador.innerHTML+=`
+        <h2 style="color: white">Ganaste!</h2>
+        <p style="color: white">Obtuviste ${countCardJug} puntos</p>
+        <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
+        `
     }
 })
 
