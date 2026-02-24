@@ -1,0 +1,21 @@
+body{
+    background-color: green;
+    height: 98vh;
+}
+.main{
+    height: 100%;
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 90px;
+}
+
+
+.buttons button{
+    width: 15%;
+    color: white;
+    background-color: black;
+    box-shadow: -1px 4px grey;
+}
