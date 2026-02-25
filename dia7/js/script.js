@@ -2,6 +2,7 @@ const comer = document.querySelector(".comer");
 const pasar = document.querySelector(".pasar");
 const jugador = document.querySelector(".jugador")
 const casa = document.querySelector(".repartidor")
+const interfaz = document.querySelector(".interfaz")
 
 let cartasJugador = [];
 let cartasCasa = [];
@@ -123,45 +124,52 @@ pasar.addEventListener("click", ()=>{
         if (cartasJugador.some(elemento => elemento.includes('A'))) {
             countCardJug -= 10
             if(countCardJug > 21){
-                jugador.innerHTML+=`
+                interfaz.innerHTML+=`
                 <h2 style="color: white">Volaste!</h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
             }else if(countCardJug < countCardRep || countCardJug == countCardRep){
-                jugador.innerHTML+=`
+                interfaz.innerHTML+=`
                 <h2 style="color: white">Perdiste!</h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
             }
             else if(countCardJug > countCardRep){
-                jugador.innerHTML+=`
+                interfaz.innerHTML+=`
                 <h2 style="color: white">Ganaste!</h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
             }
         }else{
-            jugador.innerHTML+=`
+            interfaz.innerHTML+=`
             <h2 style="color: white">Volaste!</h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
         }
     }else if(countCardJug < countCardRep || countCardJug == countCardRep){
-        jugador.innerHTML+=`
+        interfaz.innerHTML+=`
         <h2 style="color: white">Perdiste!</h2>
         <p style="color: white">Obtuviste ${countCardJug} puntos</p>
         <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
         `
     }
     else if(countCardJug > countCardRep && countCardJug <= 21){
-        jugador.innerHTML+=`
+        interfaz.innerHTML+=`
         <h2 style="color: white">Ganaste!</h2>
         <p style="color: white">Obtuviste ${countCardJug} puntos</p>
         <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
         `
     }
+    interfaz.innerHTML += `
+        <button class="button reload">Nueva partida</button>
+    `
+    const newParty = document.querySelector(".reload")
+    newParty.addEventListener("click", ()=>{
+        location.reload()
+    })
 })
 

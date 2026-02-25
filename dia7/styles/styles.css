@@ -1,21 +1,76 @@
+::-webkit-scrollbar{
+    background-color: black;
+    height: 15px;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(69, 69, 69);
+    border-radius: 5px;
+    border: 1px solid #222;
+}
 body{
     background-color: green;
-    height: 98vh;
+    height: 98.9vh;
+    margin: 0;
+    padding: 0;
 }
-.main{
-    height: 100%;
+.main, .cartas{
+    min-height:100%;
     display: grid;
     width: 100%;
+    align-items: center;
     justify-content: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
     gap: 0px 90px;
 }
+.cartas{
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 30px;
+}
+.repartidor, .jugador{
+    
+    max-width: 1000px;
+    justify-self: center;
+    align-self: center;
+}
+.jugador{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.interfaz{
+    align-items: center;
+    justify-self: end;
+    height: 100%;
+    padding: 5px 30px;
+    background-color: rgb(10, 99, 10);
+    box-shadow: -5px 5px rgb(4, 66, 4);
+}
 
-
-.buttons button{
-    width: 15%;
+.buttons button, button{
+    width: 49%;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: clamp(8px, 5vw, 1rem);
+    background-color: rgb(69, 69, 69);
     color: white;
-    background-color: black;
-    box-shadow: -1px 4px grey;
+    box-shadow: -2px 3px #222;
+}
+.buttons button:hover, button:hover{
+    box-shadow: inset -4px 4px #222;
+    font-size: 0.9rem;
+}
+.reload{
+    width: 100%;
+}
+.baraja{
+    padding: 25px 0px;
+}
+.deck{
+    border-radius: 10px;
+    box-shadow: -2px 2px #222;
 }
