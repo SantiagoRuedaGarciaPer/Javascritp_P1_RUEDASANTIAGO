@@ -83,15 +83,11 @@ pasar.addEventListener("click", ()=>{
 
     let countCardJug = 0
     for (let i = 0; i < cartasJugador.length; i++){
-        if(cartasJugador[i].length == 2){
-            carta = cartasJugador[i].slice(0, 1)
-        }else if(cartasJugador[i].length == 3){
-            carta = cartasJugador[i].slice(0, 2)
-        }
+        carta = cartasJugador[i].slice(0, 1)
 
         if(carta == 'A'){
             countCardJug += 11 
-        }else if(carta == 'J' || carta == 'Q' || carta == 'K'){
+        }else if(carta == 'J' || carta == 'Q' || carta == 'K' || carta == '0'){
             countCardJug += 10
         }
         else{
@@ -125,41 +121,41 @@ pasar.addEventListener("click", ()=>{
             countCardJug -= 10
             if(countCardJug > 21){
                 interfaz.innerHTML+=`
-                <h2 style="color: white">Volaste!</h2>
+                <h2 style="color: white">Volaste! 😢 </h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
             }else if(countCardJug < countCardRep || countCardJug == countCardRep){
                 interfaz.innerHTML+=`
-                <h2 style="color: white">Perdiste!</h2>
+                <h2 style="color: white">Perdiste! 😢 </h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
             }
             else if(countCardJug > countCardRep){
                 interfaz.innerHTML+=`
-                <h2 style="color: white">Ganaste!</h2>
+                <h2 style="color: white">Ganaste! 😄 </h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
             }
         }else{
             interfaz.innerHTML+=`
-            <h2 style="color: white">Volaste!</h2>
+            <h2 style="color: white">Volaste! 😢 </h2>
             <p style="color: white">Obtuviste ${countCardJug} puntos</p>
             <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
             `
         }
     }else if(countCardJug < countCardRep || countCardJug == countCardRep){
         interfaz.innerHTML+=`
-        <h2 style="color: white">Perdiste!</h2>
+        <h2 style="color: white">Perdiste! 😢 </h2>
         <p style="color: white">Obtuviste ${countCardJug} puntos</p>
         <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
         `
     }
     else if(countCardJug > countCardRep && countCardJug <= 21){
         interfaz.innerHTML+=`
-        <h2 style="color: white">Ganaste!</h2>
+        <h2 style="color: white">Ganaste! 😄 </h2>
         <p style="color: white">Obtuviste ${countCardJug} puntos</p>
         <p style="color:white">La casa obtuvo ${countCardRep} puntos</p>
         `
