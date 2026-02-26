@@ -74,6 +74,7 @@ body{
     border-radius: 10px;
     box-shadow: -2px 2px #222;
 }
+<<<<<<< HEAD
 .btn-bottom button{
     width: 100%;
 }
@@ -84,3 +85,5 @@ body{
 img{
     pointer-events: none;
 }
+=======
+>>>>>>> b50d479ed9f3b03687b77c0a2e9ad99df2d73204
