@@ -26,10 +26,22 @@ const renderPokemon = async (pokemon)=>{
     const data = await fetchPokemon(pokemon)
 
     if(data){
+        console.log(data)
         pokemonImage.style.display='block'
         pokemonName.innerHTML=data['name']
         pokemonNumber.innerHTML=data['id']
-        pokemonImage.src=data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+        if(data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] === null && data['sprites']['other']['showdown']['front_default'] !== null){
+            
+            pokemonImage.src = data["sprites"]['other']['showdown']['front_default']
+
+        }else if(data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] === null && data["sprites"]['other']['showdown']['front_default'] === null){
+            
+            pokemonImage.src = data["sprites"]['front_default']
+
+        }else{
+
+            pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+        }
         input.value = ""
         searchPokemon = data['id']
         pokemonMedia.src=data['cries']['latest'];
