@@ -50,3 +50,7 @@ body {
   ul{
     text-align: left;
   }
+  a{
+    color: white;
+    text-decoration: none;
+  }
