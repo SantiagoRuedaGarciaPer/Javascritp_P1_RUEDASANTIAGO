@@ -30,17 +30,17 @@ const renderPokemon = async (pokemon)=>{
         pokemonImage.style.display='block'
         pokemonName.innerHTML=data['name']
         pokemonNumber.innerHTML=data['id']
-        if(data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] === null && data['sprites']['other']['showdown']['front_default'] !== null){
+        if(data['sprites']['versions']['generation-v']['black-white']['animated']['front_shiny'] === null && data['sprites']['other']['showdown']['front_shiny'] !== null){
             
-            pokemonImage.src = data["sprites"]['other']['showdown']['front_default']
+            pokemonImage.src = data["sprites"]['other']['showdown']['front_shiny']
 
-        }else if(data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] === null && data["sprites"]['other']['showdown']['front_default'] === null){
+        }else if(data['sprites']['versions']['generation-v']['black-white']['animated']['front_shiny'] === null && data["sprites"]['other']['showdown']['front_shiny'] === null){
             
-            pokemonImage.src = data["sprites"]['front_default']
+            pokemonImage.src = data["sprites"]['front_shiny']
 
         }else{
 
-            pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+            pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_shiny']
         }
         input.value = ""
         searchPokemon = data['id']
